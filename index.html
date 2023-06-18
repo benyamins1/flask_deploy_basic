@@ -9,11 +9,28 @@
 
 </head>
 <body>
+    <div id="studentTable">
+
+    </table>
     <script>
-        axios.get('http://localhost:5000/students').then(res => {
+        axios.get('https://ben-6qad.onrender.com/students').then(res => {
             console.log(res.data);
             res.data.map(student => console.log(`student is: ${student.name}`))
         })
+
+        axios.get('https://ben-6qad.onrender.com/students').then(res => {
+            console.log(res.data);
+            const students = res.data
+            const resultHTML = students.map(student => `
+            <li>${student.id}</li>
+            <li>${student.name}</li>`).join('');
+            studentTable.innerHTML =  resultHTML;
+
+
+        })
+
+        'http://localhost:5000/students'
+
     </script>
 </body>
 </html>
